@@ -120,18 +120,53 @@ const articles = document.querySelector(".articles");
 function articleMaker(articleObj) {
   const info = document.createElement('div');
   const infoTitle = document.createElement('h2');
-  const paragraphs = document.createElement('p');
+  const dateInfo = document.createElement('p');
+  const paragraph1 = document.createElement('p');
+  const paragraph2 = document.createElement('p');
+  const paragraph3 = document.createElement('p');
   const infoButtons = document.createElement('span');
+  const openButton = document.createElement('button');
+  const closeButton = document.createElement('button');
+/*
+  <div class="article">
+      <h2>{title of the article}</h2>
+      <p class="date">{date of the article}</p>
 
-  info.classList.add('article');
-  paragraphs.classList.add('date');
-  infoButtons.classList.add('expand-btn');
+      {three separate paragraph elements}
+
+      <span class="expandButton">+</span>
+  </div>
+*/
+
+  info.appendChild(infoTitle)
+  info.appendChild(dateInfo)
+  info.appendChild(paragraph1)
+  info.appendChild(paragraph2)
+  info.appendChild(paragraph3)
+  info.appendChild(infoButtons)
+  infoButtons.appendChild(openButton)
+  infoButtons.appendChild(closeButton)
+
+  info.classList.add('.article');
+  paragraph1.classList.add('section-1');
+  paragraph2.classList.add('section-2')
+  paragraph3.classList.add('section-3')
+  infoButtons.classList.add('expandButton');
+  openButton.classList.add('info-open-btn')
+  closeButton.classList.add('info-close-btn', 'hide-btn')
 
   infoTitle.textContent = articleObj.title
-  paragraphs.textContent = articleObj.content
+  dateInfo.textContent = articleObj.date
+  paragraph1.textContent = articleObj.firstParagraph
+  paragraph2.textContent = articleObj.secondParagraph
+  paragraph3.textContent = articleObj.thirdParagraph
+  openButton.textContent = open;
+  closeButton.textContent = close;
 
   infoButtons.addEventListener('click', () => {
-    articleButtons.classList.toggle('.article-open')
+    articles.classList.toggle('toggle-on')
+    openButton.classList.toggle('hide-btn')
+    closeButton.classList.toggle('hide-btn')
   })
   
   return info;
