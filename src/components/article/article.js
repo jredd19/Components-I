@@ -137,37 +137,41 @@ function articleMaker(articleObj) {
       <span class="expandButton">+</span>
   </div>
 */
-
-  info.appendChild(infoTitle)
-  info.appendChild(dateInfo)
-  info.appendChild(paragraph1)
-  info.appendChild(paragraph2)
-  info.appendChild(paragraph3)
-  info.appendChild(infoButtons)
+  
+  articles.appendChild(infoTitle)
+  articles.appendChild(dateInfo)
+  articles.appendChild(paragraph1)
+  articles.appendChild(paragraph2)
+  articles.appendChild(paragraph3)
+  articles.appendChild(infoButtons)
   infoButtons.appendChild(openButton)
   infoButtons.appendChild(closeButton)
 
-  info.classList.add('.article');
-  paragraph1.classList.add('section-1');
-  paragraph2.classList.add('section-2')
-  paragraph3.classList.add('section-3')
-  infoButtons.classList.add('expandButton');
-  openButton.classList.add('info-open-btn')
-  closeButton.classList.add('info-close-btn', 'hide-btn')
+  info.classList.add('article', 'article-open','expandButton');
+  paragraph1.classList.add('articles');
+  paragraph2.classList.add('articles')
+  paragraph3.classList.add('articles')
+  // infoButtons.classList.add('');
+  openButton.classList.add('expandButton')
+  closeButton.classList.add('close', 'hide-btn')
 
   infoTitle.textContent = articleObj.title
   dateInfo.textContent = articleObj.date
   paragraph1.textContent = articleObj.firstParagraph
   paragraph2.textContent = articleObj.secondParagraph
   paragraph3.textContent = articleObj.thirdParagraph
-  openButton.textContent = open;
-  closeButton.textContent = close;
+  openButton.textContent = '+';
+  closeButton.textContent = '-';
 
   infoButtons.addEventListener('click', () => {
-    articles.classList.toggle('toggle-on')
     openButton.classList.toggle('hide-btn')
+  })
+
+  infoButtons.addEventListener('click', () => {
     closeButton.classList.toggle('hide-btn')
   })
+    
+  
   
   return info;
   }
