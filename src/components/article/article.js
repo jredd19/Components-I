@@ -124,9 +124,7 @@ function articleMaker(articleObj) {
   const paragraph1 = document.createElement('p');
   const paragraph2 = document.createElement('p');
   const paragraph3 = document.createElement('p');
-  const infoButtons = document.createElement('span');
-  const openButton = document.createElement('button');
-  const closeButton = document.createElement('button');
+  const infoButton = document.createElement('span');
 /*
   <div class="article">
       <h2>{title of the article}</h2>
@@ -138,45 +136,30 @@ function articleMaker(articleObj) {
   </div>
 */
   
-  articles.appendChild(infoTitle)
-  articles.appendChild(dateInfo)
-  articles.appendChild(paragraph1)
-  articles.appendChild(paragraph2)
-  articles.appendChild(paragraph3)
-  articles.appendChild(infoButtons)
-  infoButtons.appendChild(openButton)
-  infoButtons.appendChild(closeButton)
+  info.appendChild(infoTitle)
+  info.appendChild(dateInfo)
+  info.appendChild(paragraph1)
+  info.appendChild(paragraph2)
+  info.appendChild(paragraph3)
+  info.appendChild(infoButton)
 
-  info.classList.add('article', 'article-open','expandButton');
-  paragraph1.classList.add('articles');
-  paragraph2.classList.add('articles')
-  paragraph3.classList.add('articles')
-  // infoButtons.classList.add('');
-  openButton.classList.add('expandButton')
-  closeButton.classList.add('close', 'hide-btn')
+  info.classList.add('article');
+  dateInfo.classList.add('date')
+  infoButton.classList.add('expandButton');
 
   infoTitle.textContent = articleObj.title
   dateInfo.textContent = articleObj.date
   paragraph1.textContent = articleObj.firstParagraph
   paragraph2.textContent = articleObj.secondParagraph
   paragraph3.textContent = articleObj.thirdParagraph
-  openButton.textContent = '+';
-  closeButton.textContent = '-';
+  infoButton.textContent = '+'
 
-  infoButtons.addEventListener('click', () => {
-    openButton.classList.toggle('hide-btn')
+  infoButton.addEventListener('click', () => {
+    info.classList.toggle('article-open')
   })
 
-  infoButtons.addEventListener('click', () => {
-    closeButton.classList.toggle('hide-btn')
-  })
-    
-  
-  
   return info;
   }
-
-
 
 
 const articleElems = data.map((info) => {

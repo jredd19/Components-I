@@ -10,6 +10,7 @@ let menuItems = [
   'Log Out'
 ];
 
+// function menuMaker(menuObj)
 /*
   Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
 
