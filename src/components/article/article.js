@@ -118,29 +118,32 @@ const data = [
 const articles = document.querySelector(".articles");
 
 function articleMaker(articleObj) {
-  const article = document.createElement('div');
-  const articleTitle = document.createElement('h2');
+  const info = document.createElement('div');
+  const infoTitle = document.createElement('h2');
   const paragraphs = document.createElement('p');
-  const articleButtons = document.createElement ('span');
+  const infoButtons = document.createElement('span');
 
-  article.classList.add('article');
+  info.classList.add('article');
   paragraphs.classList.add('date');
-  articleButtons.classList.add('expandButton');
+  infoButtons.classList.add('expand-btn');
 
-  expandButton.addEventListener('click', () => {
-    articleButtons.classList.toggle('expandButton')
+  infoTitle.textContent = articleObj.title
+  paragraphs.textContent = articleObj.content
+
+  infoButtons.addEventListener('click', () => {
+    articleButtons.classList.toggle('.article-open')
   })
   
-  return articles;
+  return info;
   }
 
 
 
 
-const articleElems = data.map((articles) => {
-  return makePanel(articles);
+const articleElems = data.map((info) => {
+  return articleMaker(info);
 });
 
-articleElems.forEach((articles) => {
-  articles.appendChild(data);
+articleElems.forEach(info => {
+  articles.appendChild(info);
 });
